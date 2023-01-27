@@ -18,8 +18,7 @@ OUTPUT:
 ]*/
 
 export function getDogs(arr) {
-    const dogs = arr.filter((dog) => dog.type === 'dog');
-    return dogs;
+    return arr.filter((dog) => dog.type === 'dog');
 }
 
 /*
@@ -29,8 +28,7 @@ Output:
 */
 
 export function makeArrayOfNames(arr) {
-    const petNames = arr.map((petName) => petName.name);
-    return petNames;
+    return arr.map((pet) => pet.name);
 }
 
 /*
@@ -39,9 +37,7 @@ OUTPUT:
 */
 
 export function getNamesOfDogs(arr) {
-    const dogs = arr.filter((dog) => dog.type === 'dog');
-    const dogNames = dogs.map((dogs) => dogs.name);
-    return dogNames;
+    return arr.filter((pet) => pet.type === 'dog').map((dogs) => dogs.name);
 }
 
 /*
@@ -51,7 +47,7 @@ Output:
 */
 
 export function makeReversedArrayOfTypes(arr) {
-    return [];
+    return arr.map((pet) => pet.type).reverse();
 }
 
 /*
@@ -66,7 +62,10 @@ Output:
 */
 
 export function makeSpanishLanguageArray(arr) {
-    return [];
+    return arr.map(({ name, type }) => ({
+        nombre: name,
+        tipo: type,
+    }));
 }
 
 /*
@@ -80,7 +79,7 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-    return [];
+    return arr.map((pet) => ({ ...pet, isHungry: true }));
 }
 
 /*
@@ -94,8 +93,7 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
-}
+    
 
 /*
 
