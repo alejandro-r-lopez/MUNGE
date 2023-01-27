@@ -93,7 +93,8 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    
+    return arr.map((pet) => ({ name: pet.name.toUpperCase(), type: pet.type }));
+}
 
 /*
 
@@ -102,7 +103,7 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    return arr.map((pet) => pet.name + pet.type);
 }
 
 /*
@@ -115,7 +116,7 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    return arr.find((pet) => name === pet.name);
 }
 
 /*
@@ -141,7 +142,10 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map((pet) => [
+        ['name', pet.name],
+        ['type', pet.type],
+    ]);
 }
 
 ////////////////////////////////////////////////////////
@@ -170,7 +174,7 @@ Output:
 */
 
 export function getCars(arr) {
-    return [];
+    return arr.filter((car) => car.type === 'car');
 }
 
 /*
@@ -183,7 +187,9 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    return [];
+    return arr
+        .filter((car) => car.make === 'chevy')
+        .filter((car) => car.type === 'car');
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -199,10 +205,12 @@ Output:
 'taurusmalibubroncosilveradoexpresscamero'
  */
 
+// export function makeModelsStringWithReduce2(arr) {
+//     return arr.map((car) => car.model).join('');
+// }
 export function makeModelsStringWithReduce(arr) {
-    return '';
+    return arr.map((car) => car.model).reduce((acc, curr) => acc + curr);
 }
-
 /*
 (add all ages)
 
@@ -210,9 +218,8 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    return arr.map((car) => car.age).reduce((a, b) => a + b);
 }
-
 /*
 
 Output: 
