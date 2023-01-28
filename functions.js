@@ -209,7 +209,7 @@ Output:
 //     return arr.map((car) => car.model).join('');
 // }
 export function makeModelsStringWithReduce(arr) {
-    return arr.map((car) => car.model).reduce((acc, curr) => acc + curr);
+    return arr.map((car) => car.model).reduce((a, b) => a + b);
 }
 /*
 (add all ages)
@@ -242,5 +242,5 @@ Output:
  */
 
 export function makeKeysString(arr) {
-    return '';
+    return arr.map(({ type, make, model, age }) => type.make);
 }
