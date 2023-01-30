@@ -18,7 +18,7 @@ OUTPUT:
 ]*/
 
 export function getDogs(arr) {
-    return [];
+    return arr.filter((dog) => dog.type === 'dog');
 }
 
 /*
@@ -28,7 +28,7 @@ Output:
 */
 
 export function makeArrayOfNames(arr) {
-    return [];
+    return arr.map((pet) => pet.name);
 }
 
 /*
@@ -37,7 +37,7 @@ OUTPUT:
 */
 
 export function getNamesOfDogs(arr) {
-    return [];
+    return arr.filter((pet) => pet.type === 'dog').map((dogs) => dogs.name);
 }
 
 /*
@@ -47,7 +47,7 @@ Output:
 */
 
 export function makeReversedArrayOfTypes(arr) {
-    return [];
+    return arr.map((pet) => pet.type).reverse();
 }
 
 /*
@@ -62,7 +62,10 @@ Output:
 */
 
 export function makeSpanishLanguageArray(arr) {
-    return [];
+    return arr.map(({ name, type }) => ({
+        nombre: name,
+        tipo: type,
+    }));
 }
 
 /*
@@ -76,7 +79,7 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-     return []
+    return arr.map((pet) => ({ ...pet, isHungry: true }));
 }
 
 /*
@@ -90,9 +93,8 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
+    return arr.map((pet) => ({ name: pet.name.toUpperCase(), type: pet.type }));
 }
-
 
 /*
 
@@ -101,7 +103,7 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    return arr.map((pet) => pet.name + pet.type);
 }
 
 /*
@@ -114,7 +116,7 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    return arr.find((pet) => name === pet.name);
 }
 
 /*
@@ -140,7 +142,10 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map((pet) => [
+        ['name', pet.name],
+        ['type', pet.type],
+    ]);
 }
 
 ////////////////////////////////////////////////////////
@@ -169,7 +174,7 @@ Output:
 */
 
 export function getCars(arr) {
-    return [];
+    return arr.filter((car) => car.type === 'car');
 }
 
 /*
@@ -182,7 +187,9 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    return [];
+    return arr
+        .filter((car) => car.make === 'chevy')
+        .filter((car) => car.type === 'car');
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,10 +205,12 @@ Output:
 'taurusmalibubroncosilveradoexpresscamero'
  */
 
+// export function makeModelsStringWithReduce2(arr) {
+//     return arr.map((car) => car.model).join('');
+// }
 export function makeModelsStringWithReduce(arr) {
-    return '';
+    return arr.map((car) => car.model).reduce((a, b) => a + b);
 }
-
 /*
 (add all ages)
 
@@ -209,9 +218,8 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    return arr.map((car) => car.age).reduce((a, b) => a + b);
 }
-
 /*
 
 Output: 
@@ -226,7 +234,6 @@ export function makeCountObject(arr) {
     return {};
 }
 
-
 /*
 
 Output: 
@@ -234,7 +241,6 @@ Output:
 'typemakemodelage'
  */
 
-
 export function makeKeysString(arr) {
-    return '';
+    return arr.map(({ type, make, model, age }) => type.make);
 }
